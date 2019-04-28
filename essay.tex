@@ -1,0 +1,176 @@
+\documentclass[12pt,a4paper]{article}
+\special{papersize=210mm,297mm}
+\usepackage[margin=21mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\usepackage[
+    backend=biber,
+    style=apa,
+  ]{biblatex}
+ \addbibresource{citing.bib}
+
+\title{To what extent does Netflix use AI effectively as a means of market research?}
+
+\author{Andrej Vrtanoski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+	This paper analyzes how Netflix's use of artificially intelligent recommendation system function, notably the use of collaborative filtering to market content to users, and the impact to which it has had on Netflix as a company. To answer this question, I gathered a collection of research papers on the topic of Netflix's recommendation algorithm and evaluated their approach to solving the problem of effectively recommending content with an RMSE of below 0.9514. The results showed that the algorithm is incredibly effective with 80\% of the content watched on Netflix influenced by it. From a business perspective, the essay will emphasise the impact to which collaboration filtering and user clustering may have on a company's revenue. Although it only mentions Netflix as a case study, the same principles can be applied to many other large scale businesses operating in the technological market.
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+By now, everyone has experienced that moment when you have given up aimlessly scrolling through Netflix and decide to watch the first thing recommended, but you end up staying late until 3 am and getting in trouble the next day, since the show was, in your own words 'binge-worthy'. You might think to yourself, wow that is magical, how has Netflix managed to recommend me such an amazing show, but it's no secret that Netflix has an entire arsenal of special artificially intelligent machine which are powerful enough to know your every need and want.
+
+Though the notion of artificial intelligence may come as a surprise, it is important to note that as consumers, we crave a personalized experience and the current technological market is doing its best to cater to the needs. Through the use of propensity modelling, near real-time recommendations, auto-artwork generation and bandwidth analysis, Netflix is more customized to each individual user than ever before. This idea is most elegantly put when Joris Evers, the company’s director of global corporate communications stated that \enquote{There are 33 million different versions of Netflix}(\cite{carr2013giving}).
+
+\section{Background information}
+
+\subsection{Market research}
+Market research can be defined as an organized effort to gather information about target markets or customers. Market research provides important information which helps to identify and analyze the needs of the market, the market size and the competition. Market-research techniques encompass both qualitative techniques such as focus groups, interviews, as well as quantitative techniques such as customer surveys, and analysis of customer data.
+
+\subsection{Artificial Intelligence}
+
+\textit{Note: the terms \enquote{Aritificial Intelligent}, \enquote{Model}, \enquote{Machine Learning}, \enquote{Algorithm}, are all used interchangably within the essay, yet they all mean pretty much the same thing.}
+
+Nowadays, modern societal definitions focus on Artificial Intelligence being a subsidiary of computer science, and how computational machines can imitate human intelligence (being human-like rather than becoming a human in and of itself). Andreas Kaplan and Michael Haenlein define AI as a system’s ability to correctly interpret external data, to learn from such data, and to use those learnings to achieve specific goals and tasks through flexible adaptation (\cite{kaplan2019siri}).
+
+\subsection{Unsupervised Learning}
+For such a problem of segmenting the market and recommending content to each member of the Netflix platform, there is no right answer to who should watch what, it's a problem of what content will most entertain that specific customer and make them want to carry on watching. As such, the most effective method for training the artificial intelligence is through unsupervised learning. Unsupervised learning is where you only have input data \(\hat{x}\) yet no corresponding output data \(\hat{y}\). The goal for unsupervised learning,is to model the underlying structure found in the data in order to learn something more about it.
+
+\subsection{Collaborative Filtering}
+
+Collaborative filtering (CF) is a technique used by recommender systems for market research. For each user, recommender systems recommend items based on how similar users liked the item. Let’s say Alice and Bob have similar interests in movies. Alice recently watched and enjoyed \enquote{The Wolf of Wall Street}. Bob has not seen the movie, but because the system has learned that Alice and Bob have similar tastes, it recommends this movie to Bob. By comparison, content-based systems examine the properties of the items recommended. For instance, if a Netflix user has watched many cowboy movies, then recommend a movie classified in the database as having a \enquote{cowboy} genre.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4, keepaspectratio=true]{rec.png}
+	\caption{Recommendation techniques.}
+\end{figure}
+
+In a more general sense, collaborative filtering is the process of filtering for information or patterns using techniques involving collaboration among multiple agents, viewpoints, data sources, etc. Applications of collaborative filtering typically involve very large data sets, perfect for a large dataset of Netflix users.
+
+Collaborative filtering systems have many forms, but many common systems can be reduced to two steps:
+\begin{enumerate}
+	\item Find users who share the same tastes with the given user (the user whom the prediction is for).
+	\item Use the ratings from those like-minded users found in step 1 to calculate a prediction for the given user.
+\end{enumerate}
+
+\subsection{Root Mean Square Error}
+
+So we know how the artificially intelligent system is going to be trained and work, but how do we know if it's effective? Well-fitting artificial intelligence results in predicted values close to the observed data values found in the data, meaning it is highly accurate. The root means squared error (RMSE) is a measure of how well the AI performs. It does this by measuring the difference between values predicted by a model and the values observed.
+
+\begin{equation}
+	RMSE = \sqrt{\frac{\sum\limits_{i=1}^{N}{(Predicted_i - Actual_i)^2}}{N}}
+\end{equation}
+
+The error term is important because we usually want to minimize the error. In other words, \textbf{the lower the RMSE, the better the model is at predicting what users will do.}
+
+\section{How Netflix Clusters Users}
+Regardless of the fact if you are a Netflix subscriber or not, you most definitely know that Netflix utilises a purely subscription-based revenue model rather than an advertisement-based revenue model; ergo Netflix wants to make your experience as tailored as possible for each user so that they can keep you on the hook.
+
+\subsection{Idenifying the problem}
+Netflix has a huge catalogue of content (over 125 million different products, according to Netflix) that is constantly changing and can be overwhelming for a user to consume. Users don’t want to be frustrated in finding content relevant to their interests. Consumer research suggests that a typical Netflix subscriber will lose interest after roughly 60 to 90 seconds of scrolling, having reviewed 10 to 20 titles (\cite{gomez2016netflix}). The user will either find something of interest to them to watch or subsequently, substantially increase the risk that the user leaves the platform.
+
+\medskip Netflix's goals include:
+\begin{itemize}
+	\item Increase viewership in terms of the number of watch time.
+	\item Increase the number of titles explored and searched for.
+	\item Increase frequency of logging back in.
+	\item Overall increase in monthly subscription/decrease in subscriber cancellations.
+\end{itemize}
+
+\subsection{Clustering Technique (Market Segmentation)}
+
+Around late 2009, Netflix awarded \$1 million to a team of researchers who developed an algorithm that improved Netflix’s prediction accuracy by 10\%. That new algorithm was developed by \enquote{BellKor's Pragmatic Chaos}, a joint-team consisted of researchers from AT\&T Labs and Commendo Research. As many other possible algorithms put forward, they all utilised a single technique for recommending content, to cluster users together through the use of collaborative filtering. Most importantly, rather than grouping users by age, race or the country they live in currently, each user would now be segmented based on their preferences.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45, keepaspectratio=true]{cluster.png}
+	\caption{Data visualisation of Netflix user segmentation (using 10 taste-communities).}
+\end{figure}
+
+Through the use of artificial intelligence, Netflix has been able to track viewing habits and identified almost 1,300 clusters to which each and every Netflix user may fall into, eagerly titled \enquote{taste communities}. Each user can belong to multiple such communities, and all of these communities a distributed across the globe. Todd Yellin, the VP of Production in Netflix stated that “A big part of personalization is finding taste communities globally”(\cite{hafford}). While it’s not a strictly parallel, taste communities are sort of like Netflix’s version of the demographic ratings used by traditional ad-supported networks, just more evolved to suit the needs of their customers.
+
+Undoubtedly, each user has their own preferences, but with the customer base of nearly 150 million, there will be many others who will have similar or even identical tastes. That is where the idea of the taste communities comes into play, the fact that as a cluster of people, users are able to watch and discover content that other users of similar tastes are watching. The larger the dataset, in this case with over 150 million users, the more chance there is that there will be a group of individuals which share the same tastes and fall under the same taste communities as you. Not only is this method computationally faster in terms of data and resources required per customer, but it is also subsequently more effective as the number of clusters begins to increase.
+
+\section{Evaluation}
+
+Given all the changes over time to Netflix's recommendation algorithm, exactly how effective is it at marketing content to users on their platform and if so, what effect has it had on company numbers, mainly revenue over time.
+
+\subsection{Evaluation of Netflix Algorithm (SVD++)}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{delta.png}
+		\caption{\cite{mirbakhsh2013clustering}}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{graph.png}
+		\caption{\cite{daruru2009pervasive}}
+	\end{subfigure}
+	\caption{The accuracy of the clustering-based models applying on Netflix datasets.}
+\end{figure}
+
+The data model shown above was gathered from two research papers, captioned are the references to them. Let the number of clusters or as colloquially called taste communities be \(\delta\). As is visible from figure 3a, as you begin to increase \(\delta\), the subsequent RMSE will drop as well, signifying an effective and accurate model. This is due to the fact that the more clusters we allow to form and position within the dataset of Netflix users, the better each user can be represented and the wider tastes can be captured and analysed.
+
+However, as visible in figure 3b, this property only lasts up to a certain extent. Following the RMSE curve, once the minimum point is reached, the error will begin to increase. This is due to the eminent fact that the more and more clusters are introduced, the fewer users will occupy each cluster. An absence or scarcity of users will mean that there are fewer agents to carry out collaboration filtering since it works effectively in very large data sets.
+
+\subsection{Evaluation on the effectiveness of the Algorithm}
+
+Netflix’s Senior Data Scientist, Mohammad Sabah stated in 2012: \enquote{75 per cent of users select movies based on the company’s recommendations, and Netflix wants to make that number even higher} (\cite{harris_2012}). This proves that the algorithms are highly efficient at marketing content to users. However the provenance of the statistic should be questioned as it cames straight from a Senior in Netflix's organisation. This means that the statistic should be view in light terms due to the fact that it might be bias, since enevitably, he is a representative of his divison, and he would want the best possible numbers, hence providing overconfident results.
+
+More recently, as of April 2018, it was published that \enquote{80\% of the content watched on Netflix is influenced by the company’s recommendation system}(\cite{marr_2018}). This statistic proves to be one higher than in 2012, showing that over time, with the introduction of more users into Netflix's database, the recommendation is becoming more and more effective.
+
+To put these figures into perspective, according to a McKinsey report, \enquote{35\% of all Amazon’s transactions come from algorithmic product recommendations}(\cite{mckinsey}). This drastic change of 45\% highlights the true effectiveness of Netflix's recommendation algorithm, able to perform much better than Amazon's similar collaboration filtering algorithm. However, the circumstances placed upon both of them are different, where there is a clash between an e-commerce marketplace business model and an on-demand subscription-based business model.
+
+\subsection{Evaluation on Netflix's Revenue over time}
+
+For purposes of evaluation, revenue can be defined as the amount of money a business has received from its customers in exchange for the sales of goods or services. Revenue is the top line item on an income statement from which all costs and expenses are subsequently subtracted to arrive at a net income. Hence when evaluating the recommendation algorithm and how it has impacted Netflix, the revenue is a more suitable figure since it does not take into account any other expenses to which Netflix may have used.
+
+\begin{figure}[H]
+	
+	\centering
+	\includegraphics[scale=0.5, keepaspectratio=true]{growth.png}
+	\caption{Netflix's Year-Over-Year Quartarly Growth 2006-2018 (\cite{macrotrends})}
+	
+\end{figure}
+
+From the analysis of the graph above, it is visible that during the period between 2008 and 2012, Netflix saw it's greatest growth in revenue. This aligns with the fact that its new recommendation algorithm with collaboration filtering has been introduced around late 2009 to early 2010, meaning that the quarterly growth can be partially attributed to the algorithm. This illustrates how by the introduction of the algorithm, there is an initial impact of company revenue over time. After the introduction, the quarterly growth begins to rise exponentially reaching its peak around June 2011
+
+Furthermore, Netflix believes it could lose \$1 billion or more every year from subscribers quitting its service if it weren't for its personalized recommendation engine. (\cite{mcalone_2016}) A drop in one billion dollars or 14\% of revenue would allow for less money spent to cover expenses, be re-invested into the company or simply be used to generate more Netflix original content.
+
+\subsection{Other Factors Affecting Growth}
+
+Although the growth in Netflix's revenue may be attributed partially to the recommendation algorithm, there are many other factors in play which lead to growth. To start off, Netflix began launching its streaming service internationally, to major South American countries such as Brazil, Argentina, Uruguay, Chile, Bolivia and the later Netflix starts its expansion in Europe, launching in the United Kingdom, Ireland, Denmark, Finland, Norway Sweden, and more. This expansion brought millions of new potential customers to Netflix's subscription platform increasing their revenue over time.
+
+Additionally, the creation of \enquote{Netflix Specials} brought and attracted many potential customers and successively kept churn rates low. This is due to the fact that Netflix's algorithm can detect major gaps in the market and suggest potential shows to be produced and sponsored as Netflix Specials.
+
+\section{Recommendation}
+
+Having analysed the working of Netflix's recommendation system and the approach to which they take to assure that every customer is uniquely cared for, I would definitely say that implementing a similar system for any business will lead to major improvement. However, this is very dependant on the type of business and the relative size of the customer base, since collaboration filtering methods are difficult to achieve with just any firm. To start off with, the company has to have a relatively large collection of users from which market research can occur, due to the fact that the fewer people there are, the worse recommendations will get. Secondly, by looking at the top businesses that implement this approach, they seem to be businesses operating in the technological or e-commerce market, notably Amazon, Youtube and Netflix. So given that a company is operating in the technological or e-commerce market and has a large collection of users, it would be safe to assume that such a method of market research would be effective, improving company revenue massively since their supposed introduction.
+
+\medskip
+\printbibliography
+
+\end{document}

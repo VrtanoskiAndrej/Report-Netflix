@@ -1,0 +1,19 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'essay.blg'
+[53] biber-darwin:313> INFO - === Sun Apr 28, 2019, 12:55:28
+[77] Biber.pm:371> INFO - Reading 'essay.bcf'
+[178] Biber.pm:857> INFO - Found 11 citekeys in bib section 0
+[194] Biber.pm:3976> INFO - Processing section 0
+[205] Biber.pm:4136> INFO - Looking for bibtex format file 'citing.bib' for section 0
+[207] bibtex.pm:1500> INFO - LaTeX decoding ...
+[224] bibtex.pm:1316> INFO - Found BibTeX data source 'citing.bib'
+[254] Utils.pm:193> WARN - month field 'Jun' in entry 'harris_2012' is not an integer - this will probably not sort properly.
+[258] Utils.pm:193> WARN - month field 'Apr' in entry 'marr_2018' is not an integer - this will probably not sort properly.
+[265] Utils.pm:193> WARN - month field 'Jun' in entry 'mcalone_2016' is not an integer - this will probably not sort properly.
+[289] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[289] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[289] Biber.pm:3804> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[289] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[306] bbl.pm:617> INFO - Writing 'essay.bbl' with encoding 'UTF-8'
+[313] bbl.pm:720> INFO - Output to essay.bbl
+[313] Biber.pm:110> INFO - WARNINGS: 3
